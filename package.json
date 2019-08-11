@@ -3,51 +3,52 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "if test \"$NODE_ENV\" = \"production\" ; then npm run build ; fi ",
-    "dev": "vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test": "vue-cli-service test:unit"
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "crypto-js": "^3.1.9-1",
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "js-cookie": "^2.2.0",
-    "moment": "^2.24.0",
-    "natural-orderby": "^2.0.3",
-    "polyfill-array-includes": "^2.0.0",
-    "serve-static": "^1.14.1",
-    "stylus": "^0.54.5",
     "vue": "^2.6.10",
-    "vue-resource": "^1.5.1",
-    "vue-router": "^3.0.3",
-    "vuejs-datepicker": "^1.5.4",
-    "vuex": "^3.0.1"
+    "vue-router": "^3.0.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.2.1",
-    "@commitlint/config-conventional": "^7.1.1",
-    "@types/c3": "^0.7.0",
-    "@types/crypto-js": "^3.1.43",
-    "@types/jest": "^24.0.14",
-    "@types/js-cookie": "^2.2.2",
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-typescript": "^3.8.0",
-    "@vue/cli-plugin-unit-jest": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
-    "@vue/test-utils": "^1.0.0-beta.29",
+    "@types/jest": "^23.1.4",
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-plugin-typescript": "^3.10.0",
+    "@vue/cli-plugin-unit-jest": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "husky": "^2.4.1",
-    "jest": "^24.8.0",
-    "lint-staged": "^8.2.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.18.2",
+    "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
-    "vue-property-decorator": "^8.1.1",
     "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/prettier",
+      "@vue/typescript"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    }
   },
   "postcss": {
     "plugins": {
@@ -58,37 +59,6 @@
     "> 1%",
     "last 2 versions"
   ],
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{ts}": [
-      "tslint --fix -p ./tsconfig.json",
-      "prettier --single-quote --print-width 100 --write",
-      "git add"
-    ],
-    "src/**/*.{js,vue}": [
-      "prettier --single-quote --print-width 100 --write",
-      "git add"
-    ],
-    "**/*.{md}": [
-      "prettier --single-quote --print-width 100 --write",
-      "git add"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "@vue/app"
-    ]
-  },
   "jest": {
     "moduleFileExtensions": [
       "js",

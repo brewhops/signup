@@ -1,36 +1,18 @@
 <template>
-  <div>
-    Its just nothing
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import router from '@/router';
+import Vue from "vue";
+import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
 export default Vue.extend({
-  name: 'home'
+  name: "home",
+  components: {
+    HelloWorld
+  }
 });
 </script>
-
-<style lang="stylus" scoped>
-@import '../styles/breakpoints';
-
-#content {
-  display: grid;
-
-  +greater-than(desktop) {
-    grid-template-columns: 1fr;
-  }
-
-  grid-template-columns: 1fr;
-  grid-template-areas: 'info';
-
-  +less-than(tablet) {
-    grid-template-columns: 98vw;
-    grid-template-areas: 'info';
-  }
-
-  justify-items: center;
-}
-</style>
