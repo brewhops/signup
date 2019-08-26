@@ -1,25 +1,231 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav" class="navbar">
+      <h1 class="name">
+        FermTracker
+      </h1>
+      <div class="tabs">
+        <router-link class="option" to="/"><p>Home</p></router-link>
+        <router-link class="option" to="/documentation"><p>Documentation</p></router-link>
+        <router-link class="option" to="/signup"><p>Signup</p></router-link>
+      </div >
     </div>
     <router-view />
   </div>
 </template>
 <style lang="stylus">
+@import './styles/colors'
+@import './styles/mixins'
+@import './styles/breakpoints'
+
+//************* globals *************//
+html, body
+  font-family sans-serif
+  font-size 12pt
+  min-width 100vw
+  min-height 100vh
+  padding 0
+  margin 0
+
+h1, h2, h3, h4, h5, h6
+  color Teal
+  font-weight bold
+  margin 0
+
+h1
+  font-size 2em
+  padding 2vh
+h2
+  font-size 1.8em
+  padding 2vh
+h3
+  font-size 1.4em
+  padding 2vh
+h4
+  font-size 1.2em
+  padding 1vh
+
+a
+  cursor pointer
+
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
   color #2c3e50
 
-#nav
-  padding 30px
+//************* buttons *************//
+button
+  background Teal
+  color white
+  padding 10px 30px
+  font-size 1em
+  border none
+  box-shadow Shadow
+  border-radius 15px
+  font-weight 400
+  min-width 200px
+  max-width 300px
+  margin 10px
+  outline none
+  cursor pointer
+  transition box-shadow 0.2s
+  &:hover
+    transition box-shadow 0.2s
+    box-shadow none
+  &:active
+    background darken(Teal, 30%)
+
+//************* header ***********//
+.header
+  font-family sans-serif
+  width 100vw
+  background Teal
+  text-align center
+  box-shadow Shadow
+  h2, a
+    color white
+    padding 0
+    line-height 50px
   a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
+    position absolute
+    left 5px
+    color white
+    text-transform capitalize
+    text-decoration none
+  h2
+    font-size 1.5em
+    margin 0
+
+
+//************* inputs *************//
+input, .dropdown
+  padding 10px 0
+  box-sizing border-box
+  font-size 1em
+  display block
+  width 100%
+  color Teal
+  font-weight bold
+  outline none
+  border none
+  border-bottom 1px solid #cccccc
+  background none
+  &:focus
+    border-bottom 2px solid Teal
+
+select
+  margin 10px 0
+  width 100%
+
+.checkbox
+  display flex
+  align-items center
+  justify-content center
+  & input, & p
+    width auto
+    padding 0 10px
+
+.inputGroup
+  position relative
+  margin 10px 0
+  label
+    font-size 18px
+    font-weight normal
+    position absolute
+    pointer-events none
+    left 0
+    bottom 0
+    transition 0.2s ease all;
+    -moz-transition 0.2s ease all;
+    -webkit-transition 0.2s ease all
+
+  input:focus ~ label, input:valid ~ label
+    bottom -20px
+    color #999
+    font-size 14px
+
+.dropdown
+  min-height 30px
+
+.inline
+  display flex
+  justify-content space-around
+
+.logo-med
+  height 150px
+  width 150px
+
+.column-1, .column-2
+  width 100vw
+  min-height calc(100vh - 50px)
+  align-items center
+  justify-content space-around
+
+.column-1
+  display flex
+
+.column-2
+  display grid
+  grid-template-columns 1fr 1fr
+  padding 20px
+  text-align center
+
+
+//************** tables *************//
+table
+  margin auto
+
+//************** grids *************//
+.grid
+  display grid
+  grid-gap 25px 10px
+  +greater-than(mobile)
+    grid-template-columns repeat(12, 1fr)
+    .col-1
+      grid-column span 12
+    .col-2
+      grid-column span 6
+    .col-3
+      grid-column span 4
+    .col-4
+      grid-column span 3
+    .col-span-8
+      grid-column span 8
+
+.navbar {
+  position sticky
+  top 0
+  background-color #00aaa6
+  z-index 1
+  display flex
+  flex-direction row
+  justify-content space-between
+}
+
+.tabs {
+  display flex
+  justify-content center
+}
+
+.name {
+  color white
+}
+
+.option {
+  color #ffffff
+  text-decoration none
+  padding 5px
+  margin 5px
+  font-size 14pt
+  +less-than(tablet){
+    font-size 12pt
+  }
+}
+
+/* onclick color: 267f7d */
+.option:hover {
+  background-color: #00ccc7;
+}
+.active {
+  background-color: #267f7d;
+}
 </style>
