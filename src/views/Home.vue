@@ -60,6 +60,8 @@
       <li><h3>History</h3></li>
       <li><h3>Something Else</h3></li>
     </ul>
+    <h2>Look at these great prices</h2>
+    <img src="" class="image">a nice pricing graphic</img>
   </div>
 </template>
 
