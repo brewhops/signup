@@ -12,11 +12,38 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { KeyAccessor, 
+         Client
+} from "@/types/index";
+import { HttpResponse } from 'vue-resource/types/vue-resource';
+
+interface IClientEntryState extends KeyAccessor, Client {}
 
 export default Vue.extend({
   name: "ClientInfoEntry",
   props: {},
-  methods: {}
+  methods: {
+    async addClient(client: IClientEntryState) {
+      const cookie: BrewhopsCookie = Cookie.getJSON('loggedIn');
+      const headers = {
+        Authorization: `Bearer ${cookie.token}`
+      };
+
+      const requestObjects: Client = {
+        name: client.name,
+        admin_email: client.email,
+        admin_password: client.password,
+      }
+
+      await this.$http.post(
+        `${process.env.VUE_APP_API}/clients/add/`,
+        requestObjects,
+        {
+          headers
+        }
+      );
+    }
+  }
 });
 
 </script>

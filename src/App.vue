@@ -5,10 +5,16 @@
         FermTracker
       </h1>
       <div class="tabs">
-        <router-link class="option" to="/"><p>Home</p></router-link>
-        <router-link class="option" to="/documentation"><p>Documentation</p></router-link>
-        <router-link class="option" to="/signup"><p>Signup</p></router-link>
-      </div >
+        <router-link class="option" to="/">
+          <p>Home</p>
+        </router-link>
+        <router-link class="option" to="/documentation">
+          <p>Documentation</p>
+        </router-link>
+        <router-link class="option" to="/signup">
+          <p>Signup</p>
+        </router-link>
+      </div>
     </div>
     <router-view />
   </div>

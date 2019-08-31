@@ -1,5 +1,18 @@
 <template>
   <div class="signup">
-    <h1>This is a signup page</h1>
+    <ClientInfoEntry />
   </div>
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+import ClientInfoEntry from "@/components/ClientInfoEntry.vue";
+
+export default Vue.extend({
+  name: "Signup",
+  components: {
+    ClientInfoEntry
+  },
+  props: {}
+});
+</script>

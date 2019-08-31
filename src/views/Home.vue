@@ -18,7 +18,8 @@
         that work may be distributed.
     </p>
     <h2>Brew Beer</h2>
-    <img src="" class="image">beer picture here</img>
+    <img src="" class="image" />
+    <p>beer picture here</p>
     <ul>
       <li><h3>Better</h3></li>
       <p>
@@ -54,14 +55,16 @@
       </p>
     </ul>
     <h2>Take a Look at Some Graphs</h2>
-    <img src="" class="image">nice looking graphs</img>
+    <img src="" class="image" />
+    <p>nice looking graphs</p>
     <ul>
       <li><h3>Lines</h3></li>
       <li><h3>History</h3></li>
       <li><h3>Something Else</h3></li>
     </ul>
     <h2>Look at these great prices</h2>
-    <img src="" class="image">a nice pricing graphic</img>
+    <img src="" class="image" />
+    <p>a nice pricing graphic</p>
   </div>
 </template>
 
