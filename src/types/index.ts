@@ -9,3 +9,10 @@ export type Client = {
     admin_email: string;
     admin_password: string;
 };
+
+export type BrewhopsCookie = {
+  id: string;
+  username: string;
+  admin: boolean;
+  token: string;
+};

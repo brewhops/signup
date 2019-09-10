@@ -12,9 +12,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { KeyAccessor, 
-         Client
+import { BrewhopsCookie,
+         Client,
+         KeyAccessor
 } from "@/types/index";
+import Cookie from 'js-cookie';
 import { HttpResponse } from 'vue-resource/types/vue-resource';
 
 interface IClientEntryState extends KeyAccessor, Client {}
